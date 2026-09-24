@@ -14,14 +14,9 @@ public class Entrante : Producto
 
     public void OtenerDescripcion()
     {
-        if (IsCaliente = true)
-        {
-            Console.WriteLine($"{Producto.ObtenerProducto()} - Numero de personas: {NPersonas} - Como se sirver: Caliente");
-        }
-        else
-        {
-            Console.WriteLine($"{Producto.ObtenerProducto()} - Numero de personas: {NPersonas} - Como se sirver: Frio");
-        }
-        
+        ObtenerProducto();
+
+        string temperatura = IsCaliente ? "Caliente" : "Frio";
+        Console.WriteLine($"Numero de personas: {NPersonas} - Como se sirve: {temperatura}");
     }
 }
