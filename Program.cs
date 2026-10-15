@@ -1,8 +1,5 @@
 ﻿using Models;
 
-Console.WriteLine("Hello, World!");
-
-
 // ## 2. Carta del restaurante
 /*
 Bebida bebida1= new Bebida("Coca Cola",2,false);
@@ -66,3 +63,28 @@ Console.WriteLine(producto1.ObtenerDescripcion());
 Console.WriteLine(producto2.ObtenerDescripcion());
 Console.WriteLine(producto3.ObtenerDescripcion());
 */
+
+List<Producto> productos = new List<Producto>();
+{
+   productos.Add(new PlatoPrincipal("Paella", 12));
+   productos.Add(new PlatoPrincipal("Chuleton", 15));
+   productos.Add(new PlatoPrincipal("Secreto", 15));
+};
+
+Console.WriteLine("=== CARTA ===");
+for (int i = 0; i < productos.Count; i++)
+{
+    Producto producto = productos[i];
+    Console.WriteLine($"{i + 1}. {producto.Nombre} - {producto.Precio:0.##} €");
+}
+
+Console.WriteLine("¿Qué producto quieres? ");
+if (!int.TryParse(Console.ReadLine(), out int seleccion))
+{
+    Console.WriteLine("Debes introducir un número.");
+    return;
+}
+
+Producto productoElegido = productos[seleccion - 1];
+Console.WriteLine("Has elegido:");
+Console.WriteLine($"{productoElegido.Nombre} - {productoElegido.Precio:0.##} €");
