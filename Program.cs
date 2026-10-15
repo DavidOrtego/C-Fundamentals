@@ -118,6 +118,7 @@ else
     Console.WriteLine("No se ha encontrado el producto.");
 }
 */
+
 Console.WriteLine("Producto a buscar por precio max:");
 string preciobusqueda = Console.ReadLine();
 decimal.TryParse(preciobusqueda, out decimal precioDecimal);
@@ -135,3 +136,16 @@ if (contadorEncontradosPrecioMax != 0)
 {
     Console.WriteLine($"No hay productos menores que {precioDecimal}");
 }
+
+decimal mayor = 0;
+Producto productoMayorPrecio = null;
+foreach (Producto p in productos)
+{
+    if(p.Precio > mayor)
+    {
+        mayor = p.Precio;
+        productoMayorPrecio = p;
+    }
+}
+Console.WriteLine($"El producto más caro es:");
+productoMayorPrecio.ObtenerProducto();
