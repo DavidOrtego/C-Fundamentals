@@ -71,6 +71,7 @@ List<Producto> productos = new List<Producto>();
    productos.Add(new PlatoPrincipal("Secreto", 15));
 };
 
+
 Console.WriteLine("=== CARTA ===");
 for (int i = 0; i < productos.Count; i++)
 {
@@ -89,7 +90,30 @@ if (seleccion < 1 || seleccion > productos.Count)
     Console.WriteLine("Ese producto no existe.");
     return;
 }
-
-Producto productoElegido = productos[seleccion - 1];
 Console.WriteLine("Has elegido:");
-Console.WriteLine($"{productoElegido.Nombre} - {productoElegido.Precio:0.##} €");
+productos[seleccion - 1].ObtenerProducto();
+
+
+Console.WriteLine("Producto a buscar:");
+String selec = Console.ReadLine();
+List<Producto> productosEncontrados = new List<Producto>();
+int contadorEncontrados = 0;
+foreach (Producto p in productos)
+{  
+    if (p.Nombre.ToLower().Equals(selec.ToLower()))
+    {
+        productosEncontrados.Add(p);
+        contadorEncontrados++;
+    }
+}
+if(contadorEncontrados != 0)
+{
+    foreach (Producto p in productosEncontrados)
+    {
+        p.ObtenerProducto();
+    }
+}
+else
+{
+    Console.WriteLine("No se ha encontrado el producto.");
+}
