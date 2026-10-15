@@ -84,6 +84,11 @@ if (!int.TryParse(Console.ReadLine(), out int seleccion))
     Console.WriteLine("Debes introducir un número.");
     return;
 }
+if (seleccion < 1 || seleccion > productos.Count)
+{
+    Console.WriteLine("Ese producto no existe.");
+    return;
+}
 
 Producto productoElegido = productos[seleccion - 1];
 Console.WriteLine("Has elegido:");
