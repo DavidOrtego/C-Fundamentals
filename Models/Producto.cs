@@ -15,4 +15,8 @@ public abstract class Producto
     {
         Console.WriteLine($"Nombre: {this.Nombre} - Precio: {this.Precio:C2}");
     }
+    public void ObtenerDescripcion()
+    {
+        Console.WriteLine($"Nombre: {this.Nombre} - Precio: {this.Precio:C2}");
+    }
 }
