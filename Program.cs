@@ -68,7 +68,7 @@ List<Producto> productos = new List<Producto>();
 {
    productos.Add(new PlatoPrincipal("Paella", 12));
    productos.Add(new PlatoPrincipal("Chuleton", 15));
-   productos.Add(new PlatoPrincipal("Secreto", 15));
+   productos.Add(new PlatoPrincipal("Secreto", 8));
 };
 
 
@@ -93,7 +93,7 @@ if (seleccion < 1 || seleccion > productos.Count)
 Console.WriteLine("Has elegido:");
 productos[seleccion - 1].ObtenerProducto();
 
-
+/*
 Console.WriteLine("Producto a buscar:");
 String selec = Console.ReadLine();
 List<Producto> productosEncontrados = new List<Producto>();
@@ -116,4 +116,22 @@ if(contadorEncontrados != 0)
 else
 {
     Console.WriteLine("No se ha encontrado el producto.");
+}
+*/
+Console.WriteLine("Producto a buscar por precio max:");
+string preciobusqueda = Console.ReadLine();
+decimal.TryParse(preciobusqueda, out decimal precioDecimal);
+Console.WriteLine($"Productos de hasta {precioDecimal}€:");
+int contadorEncontradosPrecioMax = 0;
+foreach (Producto p in productos)
+{
+    if (p.Precio <= precioDecimal)
+    {
+        p.ObtenerProducto();
+        contadorEncontradosPrecioMax++;
+    }
+}
+if (contadorEncontradosPrecioMax != 0)
+{
+    Console.WriteLine($"No hay productos menores que {precioDecimal}");
 }
