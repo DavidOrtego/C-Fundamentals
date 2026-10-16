@@ -54,5 +54,26 @@ public class Carta
             Console.WriteLine("No se ha encontrado el producto.");
         }
     }
-    
+
+    public static void MostrarProductosPorPrecio(List<Producto> productos)
+    {
+        Console.WriteLine("Precio del producto a buscar:");
+        string preciobusqueda = Console.ReadLine();
+        decimal.TryParse(preciobusqueda, out decimal precioDecimal);
+        Console.WriteLine($"Productos de {precioDecimal}€:");
+        int contadorEncontrados = 0;
+        foreach (Producto p in productos)
+        {
+            if (p.Precio == precioDecimal)
+            {
+                p.ObtenerProducto();
+                contadorEncontrados++;
+            }
+        }
+        if (contadorEncontrados == 0)
+        {
+            Console.WriteLine($"No hay productos menores que {precioDecimal}");
+        }
+    }
+
 }
