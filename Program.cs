@@ -63,7 +63,7 @@ Console.WriteLine(producto1.ObtenerDescripcion());
 Console.WriteLine(producto2.ObtenerDescripcion());
 Console.WriteLine(producto3.ObtenerDescripcion());
 */
-
+/*
 List<Producto> productos = new List<Producto>();
 {
    productos.Add(new PlatoPrincipal("Paella", 12));
@@ -118,7 +118,7 @@ else
     Console.WriteLine("No se ha encontrado el producto.");
 }
 */
-
+/*
 Console.WriteLine("Producto a buscar por precio max:");
 string preciobusqueda = Console.ReadLine();
 decimal.TryParse(preciobusqueda, out decimal precioDecimal);
@@ -149,3 +149,64 @@ foreach (Producto p in productos)
 }
 Console.WriteLine($"El producto más caro es:");
 productoMayorPrecio.ObtenerProducto();
+*/
+
+Bebida bebida1= new Bebida("Coca Cola",2,false);
+Bebida bebida2 =new Bebida("Agua", 1,false);
+PlatoPrincipal platoPrincipal1= new PlatoPrincipal("Paella",12);
+PlatoPrincipal platoPrincipal2= new PlatoPrincipal("Chuleton",15);
+Postre postre1 = new Postre("Tarta de queso", 4, 200,false);
+Postre postre2 = new Postre("Tarta de chocolate", 4, 400, false);
+Entrante entrante1 = new Entrante("Patatas bravas", 9, 2, true);
+Entrante entrante2 = new Entrante("Ensaladilla rusa", 4, 1, false);
+
+List<Producto> productos = new List<Producto>();
+productos.Add(bebida1);
+productos.Add(bebida2);
+productos.Add(platoPrincipal1);
+productos.Add(platoPrincipal2);
+productos.Add(postre1);
+productos.Add(postre2);
+productos.Add(entrante1);
+productos.Add(entrante2);
+
+int i = 10;
+do
+{
+    Console.WriteLine("========================");
+    Console.WriteLine("      RESTAURANTE       ");
+    Console.WriteLine("========================");
+    Console.WriteLine("1. Ver carta");
+    Console.WriteLine("2. Elegir producto");
+    Console.WriteLine("3. Buscar producto");
+    Console.WriteLine("4. Productos por precio");
+    Console.WriteLine("5. Producto más caro");
+    Console.WriteLine("0. Salir");
+    Console.WriteLine("Elige una opción:");
+    string opcionStr = Console.ReadLine();
+    int.TryParse(opcionStr, out int opcionInt);
+    i = opcionInt;
+    switch (opcionInt)
+    {
+        case 0:
+        break;
+        case 1:
+        Carta.MostrarCarta(productos);
+        break;
+        case 2:
+        Carta.ElegirProducto(productos);
+        break;
+        case 3:
+        Carta.BuscarProducto(productos);
+        break;
+        case 4:
+        Carta.MostrarProductosPorPrecio(productos);
+        break;
+        case 5:
+        Carta.MostrarProductoMasCaro(productos);
+        break;
+        default:
+        Console.WriteLine("opcion no valida.");
+        break;
+    }
+} while (i != 0);
