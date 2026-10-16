@@ -11,7 +11,7 @@ public class Carta
         }
     }
 
-    public static void ElegirProducto(List<Producto> productos )
+    public static void ElegirProducto(List<Producto> productos)
     {
         Console.WriteLine("¿Qué producto quieres? ");
         if (!int.TryParse(Console.ReadLine(), out int seleccion))
@@ -27,4 +27,32 @@ public class Carta
         Console.WriteLine("Has elegido:");
         productos[seleccion - 1].ObtenerProducto();
     }
+
+    public static void BuscarProducto(List<Producto> productos)
+    {
+        Console.WriteLine("Producto a buscar:");
+        String selec = Console.ReadLine();
+        List<Producto> productosEncontrados = new List<Producto>();
+        int contadorEncontrados = 0;
+        foreach (Producto p in productos)
+        {
+            if (p.Nombre.ToLower().Equals(selec.ToLower()))
+            {
+                productosEncontrados.Add(p);
+                contadorEncontrados++;
+            }
+        }
+        if (contadorEncontrados != 0)
+        {
+            foreach (Producto p in productosEncontrados)
+            {
+                p.ObtenerProducto();
+            }
+        }
+        else
+        {
+            Console.WriteLine("No se ha encontrado el producto.");
+        }
+    }
+    
 }
