@@ -76,4 +76,19 @@ public class Carta
         }
     }
 
+    public static void MostrarProductoMasCaro(List<Producto> productos)
+    {
+        decimal mayor = 0;
+        Producto productoMayorPrecio = null;
+        foreach (Producto p in productos)
+        {
+            if (p.Precio > mayor)
+            {
+                mayor = p.Precio;
+                productoMayorPrecio = p;
+            }
+        }
+        Console.WriteLine($"El producto más caro es:");
+        productoMayorPrecio.ObtenerProducto();
+    }
 }
