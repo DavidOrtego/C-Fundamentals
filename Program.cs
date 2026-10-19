@@ -170,6 +170,8 @@ productos.Add(postre2);
 productos.Add(entrante1);
 productos.Add(entrante2);
 
+List<Producto> pedido = new List<Producto>();
+
 int i = 10;
 do
 {
@@ -177,10 +179,10 @@ do
     Console.WriteLine("      RESTAURANTE       ");
     Console.WriteLine("========================");
     Console.WriteLine("1. Ver carta");
-    Console.WriteLine("2. Elegir producto");
-    Console.WriteLine("3. Buscar producto");
-    Console.WriteLine("4. Productos por precio");
-    Console.WriteLine("5. Producto más caro");
+    Console.WriteLine("2. Añadir producto al pedido");
+    Console.WriteLine("3. Ver pedido");
+    Console.WriteLine("4. Buscar producto");
+    Console.WriteLine("5. Productos por precio");
     Console.WriteLine("0. Salir");
     Console.WriteLine("Elige una opción:");
     string opcionStr = Console.ReadLine();
@@ -194,16 +196,17 @@ do
         Carta.MostrarCarta(productos);
         break;
         case 2:
-        Carta.ElegirProducto(productos);
+        Pedido.AgregarProductoAlPedido(productos,pedido);
         break;
         case 3:
-        Carta.BuscarProducto(productos);
+        
         break;
         case 4:
-        Carta.MostrarProductosPorPrecio(productos);
+        Carta.BuscarProducto(productos);
+        
         break;
         case 5:
-        Carta.MostrarProductoMasCaro(productos);
+        Carta.MostrarProductosPorPrecio(productos);
         break;
         default:
         Console.WriteLine("opcion no valida.");
