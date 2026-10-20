@@ -199,7 +199,7 @@ do
         Pedido.AgregarProductoAlPedido(productos,pedido);
         break;
         case 3:
-        
+        Pedido.MostrarPedido(pedido);
         break;
         case 4:
         Carta.BuscarProducto(productos);

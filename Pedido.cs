@@ -21,5 +21,24 @@ public class Pedido
 
     }
 
+    public static void MostrarPedido(List<Producto> pedido)
+    {
 
+        if(pedido.Count == 0)
+        {
+            Console.WriteLine("El pedido está vacío");
+        }
+        else
+        {
+            Console.WriteLine("=== Tu Pedido ===");
+            decimal total = 0;
+            foreach(Producto p in pedido)
+            {
+                Console.WriteLine($"{p.Nombre}   {p.Precio}");
+                total = total +  p.Precio;
+            }
+            Console.WriteLine($"---------------------");
+            Console.WriteLine($"TOTAL:     {total}");
+        }
+    }
 }
