@@ -17,9 +17,9 @@ public class Pedido
             return;
         }
         pedido.Add(productos[idProducto - 1]);
-        Console.WriteLine($"{pedido[idProducto-1].Nombre} añadida al pedido");
+        Console.WriteLine($"{pedido[pedido.Count-1].Nombre} añadida al pedido");
 
     }
 
-    
+
 }
