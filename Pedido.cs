@@ -73,4 +73,28 @@ public class Pedido
             pedido.RemoveAt(idPedidoEli - 1);
         }
     }
+
+    public static void FinalizarPedido(List<Producto> pedido)
+    {
+        if (pedido.Count == 0)
+        {
+            Console.WriteLine("El pedido está vacío");
+        }
+        else
+        {
+            Console.WriteLine("=== TICKET ===");
+            decimal total = 0;
+            int contadorProductos = 0;
+            foreach (Producto p in pedido)
+            {
+                Console.WriteLine($"{p.Nombre}   {p.Precio}");
+                total = total + p.Precio;
+                contadorProductos++;
+            }
+            Console.WriteLine($"---------------------");
+            Console.WriteLine($"Productos:     {contadorProductos}");
+            Console.WriteLine($"TOTAL:     {total}");
+            pedido.Clear();
+        }
+    }
 }
