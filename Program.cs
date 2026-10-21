@@ -181,8 +181,11 @@ do
     Console.WriteLine("1. Ver carta");
     Console.WriteLine("2. Añadir producto al pedido");
     Console.WriteLine("3. Ver pedido");
-    Console.WriteLine("4. Buscar producto");
-    Console.WriteLine("5. Productos por precio");
+    Console.WriteLine("4. Eliminar producto del pedido");
+    Console.WriteLine("5. Finalizar pedido");
+    Console.WriteLine("6. Buscar producto");
+    Console.WriteLine("7. Productos por precio");
+    Console.WriteLine("8. Producto más caro");
     Console.WriteLine("0. Salir");
     Console.WriteLine("Elige una opción:");
     string opcionStr = Console.ReadLine();
@@ -190,8 +193,6 @@ do
     i = opcionInt;
     switch (opcionInt)
     {
-        case 0:
-        break;
         case 1:
         Carta.MostrarCarta(productos);
         break;
@@ -202,11 +203,19 @@ do
         Pedido.MostrarPedido(pedido);
         break;
         case 4:
-        Carta.BuscarProducto(productos);
-        
+        Pedido.EliminarProductoDelPedido(pedido);
         break;
         case 5:
+        Pedido.FinalizarPedido(pedido);
+        break;
+        case 6:
+        Carta.BuscarProducto(productos);
+        break;
+        case 7:
         Carta.MostrarProductosPorPrecio(productos);
+        break;
+        case 8:
+        Carta.MostrarProductoMasCaro(productos);
         break;
         default:
         Console.WriteLine("opcion no valida.");
